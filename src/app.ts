@@ -11,7 +11,6 @@ import { appError } from "./errors/appError";
 const app = express();
 app.use(express.json());
 app.use("/users", usersRouter);
-ß;
 app.use("/login", loginRouter);
 app.use("/properties", propertiesRouter);
 app.use("/categories", categoryRouter);
