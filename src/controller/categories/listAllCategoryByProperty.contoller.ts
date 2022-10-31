@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import listAllPropertyByCategoryService from "../../service/categories/listCategory.service";
+import listAllPropertyByCategoryService from "../../service/categories/listPropertysByCategory.service";
 
 const listAllPropertyByCategoryController = async (
   req: Request,
