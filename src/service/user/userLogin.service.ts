@@ -28,7 +28,7 @@ const userLoginService = async ({ email, password }: IUserLogin) => {
       isActive: user.isActive,
       id: user.id,
     },
-    "entregaS4-17",
+    "SECRET_KEY",
     { expiresIn: "24h" }
   );
 

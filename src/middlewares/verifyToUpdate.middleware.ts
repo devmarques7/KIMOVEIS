@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { IUpdate } from "../interfaces/users";
 import jwt from "jsonwebtoken";
 
-const verifyIsAdmUpdateMiddleware = async (
+const verifyToUpdate = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -22,4 +22,4 @@ const verifyIsAdmUpdateMiddleware = async (
   next();
 };
 
-export default verifyIsAdmUpdateMiddleware;
+export default verifyToUpdate;

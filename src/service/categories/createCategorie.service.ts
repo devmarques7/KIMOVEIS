@@ -4,6 +4,7 @@ import { ICategoryRequest } from "../../interfaces/categories";
 import AppDataSource from "../../data-source";
 
 const createCategoryService = async ({ name }: ICategoryRequest) => {
+  console.log(name);
   const categoryRepository = AppDataSource.getRepository(Categories);
 
   const newCategory = categoryRepository.create({

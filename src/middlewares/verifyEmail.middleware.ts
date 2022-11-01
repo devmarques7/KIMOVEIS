@@ -2,10 +2,13 @@ import { Request, Response, NextFunction } from "express";
 import AppDataSource from "../data-source";
 import { User } from "../entities/user.entity";
 
-
-const verifyEmailMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+const validateEmail = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const userRepository = AppDataSource.getRepository(User);
- 
+
   const users = await userRepository.find();
   const { email } = req.body;
   const userArealdyExists = users.find((user) => user.email === email);
@@ -17,4 +20,4 @@ const verifyEmailMiddleware = async (req: Request, res: Response, next: NextFunc
   }
   next();
 };
-export default verifyEmailMiddleware;
+export default validateEmail;

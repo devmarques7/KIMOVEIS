@@ -2,17 +2,17 @@ import { Router } from "express";
 import createCategoryController from "../controller/categories/createCategory.controller";
 import listAllPropertyByCategoryController from "../controller/categories/listAllCategoryByProperty.contoller";
 import listAllCategoriesController from "../controller/categories/listCategoryController";
+import verifyAuth from "../middlewares/verifyAuth.middlewares";
 
-import ensureAuthMiddleware from "../middlewares/verifyAuth.middlewares";
-import verifyCategoryNameMiddleware from "../middlewares/verifyCategorieName.middleware";
-import verifyIsAdmMiddleware from "../middlewares/verifyIsAdm.middleware";
+import validateNameCategory from "../middlewares/verifyCategorieName.middleware";
+import verifyIsAdm from "../middlewares/verifyIsAdm.middleware";
 
 const router = Router();
 router.post(
   "",
-  ensureAuthMiddleware,
-  verifyIsAdmMiddleware,
-  verifyCategoryNameMiddleware,
+  verifyAuth,
+  verifyIsAdm,
+  validateNameCategory,
   createCategoryController
 );
 router.get("", listAllCategoriesController);
