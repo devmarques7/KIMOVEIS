@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source";
 import { Properties } from "../../entities/properties.entity";
 import { appError } from "../../errors/appError";
 
-const listSchedulesByPropertyService = async (id: string) => {
+const listAllSchedulesByPropertyService = async (id: string) => {
   const propertyRepository = AppDataSource.getRepository(Properties);
   const listSchedules = await propertyRepository.findOne({
     where: {
@@ -20,4 +20,4 @@ const listSchedulesByPropertyService = async (id: string) => {
   return listSchedules;
 };
 
-export default listSchedulesByPropertyService;
+export default listAllSchedulesByPropertyService;

@@ -1,5 +1,6 @@
 import { Router } from "express";
-import listSchedulesByPropertyController from "../controller/schedules/listSchedules.controller";
+
+import listAllSchedulesByPropertyController from "../controller/schedules/listSchedules.controller";
 import registerSchedulesController from "../controller/schedules/registerSchedules.controller";
 
 import verifyAuth from "../middlewares/verifyAuth.middlewares";
@@ -11,7 +12,7 @@ router.get(
   "/properties/:id",
   verifyAuth,
   verifyIsAdm,
-  listSchedulesByPropertyController
+  listAllSchedulesByPropertyController
 );
 
 export default router;

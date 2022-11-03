@@ -1,27 +1,31 @@
 version: "3.9"
 
 services:
-  api:
-    container_name: api
+  app:
+    container_name: deven_m4
     build: .
     ports:
       - 3000:3000
-    env_file:
-      - .env
+    environment:
+      - POSTGRES_USER='admin'
+      - POSTGRES_PASSWORD='pswr'
+      - POSTGRES_DB=
+      - HOST='dataimoveis'
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
         command: bash -c "yarn typeorm migration:run -d ./src/data-source && yarn dev"
-    volumes:
-      - .:/app
 
-  db:
+  postgres:
     container_name: db
     image: "postgres"
     ports:
       - 5431:5432
-    env_file:
-      - .env
+    environment:
+      - POSTGRES_USER='admin'
+      - POSTGRES_PASSWORD='pswr'
+      - POSTGRES_DB=
+      - HOST='dataimoveis'
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
       interval: 10s
