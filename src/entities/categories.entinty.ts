@@ -15,10 +15,4 @@ export class Categories {
     eager: true,
   })
   properties: Properties[];
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }

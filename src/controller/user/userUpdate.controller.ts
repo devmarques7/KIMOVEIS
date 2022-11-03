@@ -6,7 +6,6 @@ const updatedUserController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const updates: IUserUpdate = req.body;
-    console.log(updates);
     const updateUser = await updateUserService(id, updates);
     return res.json({
       message: "User updated",

@@ -17,6 +17,8 @@ const registerPropertyService = async ({
   const addressRepository = AppDataSource.getRepository(Address);
   const categoriesRepository = AppDataSource.getRepository(Categories);
 
+  console.log(value, size, address, categoryId);
+
   const categorie = await categoriesRepository.findOneBy({ id: categoryId });
   if (!categorie) {
     throw new appError(404, "Categorie not found");

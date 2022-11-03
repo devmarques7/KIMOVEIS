@@ -2,15 +2,15 @@ import { Router } from "express";
 import listSchedulesByPropertyController from "../controller/schedules/listSchedules.controller";
 import registerSchedulesController from "../controller/schedules/registerSchedules.controller";
 
-import ensureAuthMiddleware from "../middlewares/verifyAuth.middlewares";
-import verifyIsAdmMiddleware from "../middlewares/verifyIsAdm.middleware";
+import verifyAuth from "../middlewares/verifyAuth.middlewares";
+import verifyIsAdm from "../middlewares/verifyIsAdm.middleware";
 
 const router = Router();
-router.post("", ensureAuthMiddleware, registerSchedulesController);
+router.post("", verifyAuth, registerSchedulesController);
 router.get(
   "/properties/:id",
-  ensureAuthMiddleware,
-  verifyIsAdmMiddleware,
+  verifyAuth,
+  verifyIsAdm,
   listSchedulesByPropertyController
 );
 

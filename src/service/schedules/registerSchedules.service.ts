@@ -18,6 +18,7 @@ const registerSchedullesService = async (
 
   const scheduleRepository = AppDataSource.getRepository(Schedule);
   const validateHour = +hour.split(" : ")[0];
+
   if (validateHour < 8 || validateHour >= 18) {
     throw new appError(400, "Invalid Hour");
   }
@@ -33,6 +34,7 @@ const registerSchedullesService = async (
 
   const schedules = await scheduleRepository.find();
   const schedulesAlredyExists = schedules.find((elem) => elem);
+
   if (schedulesAlredyExists) {
     throw new appError(400, "Date and hour invalid");
   }

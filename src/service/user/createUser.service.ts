@@ -11,13 +11,13 @@ const createUserService = async ({
 }: IUserRequest): Promise<IUserRequest> => {
   const userRepository = AppDataSource.getRepository(User);
 
-  const incrypt = await hash(password, 10);
+  const encrypt = await hash(password, 10);
 
   const newUser = userRepository.create({
     name,
     email,
     isAdm,
-    password: incrypt,
+    password: encrypt,
   });
   await userRepository.save(newUser);
   return newUser;

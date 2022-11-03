@@ -21,10 +21,4 @@ export class Schedule {
 
   @ManyToOne(() => User, (user) => user.schedule, { eager: true })
   user: User;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }

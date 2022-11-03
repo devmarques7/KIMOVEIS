@@ -48,10 +48,4 @@ export class Properties {
     eager: true,
   })
   schedule: Schedule[];
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }
